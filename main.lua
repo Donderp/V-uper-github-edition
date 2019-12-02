@@ -6,7 +6,7 @@ local wheats = {}
 local Deathcount = 0
 local cor_rage = {}
 local fps = 60
-print("warning:read 0manual.txt before playing the game")
+print("warning:read 0manual.txt before playing the game because it tells the controls and has very good description of why the game has suggestive themes and crude humor")
 local Talkies = require("Talkies")
 local frames = {}
 local waterframes = {}
