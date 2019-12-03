@@ -1,3 +1,4 @@
+local gID = generalImage:getDimsensions()
 local condition = {}
 local cor = {}
 local cortype = 1
@@ -38,23 +39,9 @@ local y = koble.getHeight()
 music = love.audio.newSource( "8bitsoundtrack.ogg", "static" )
 generalImage = koble.newImage("7777654321dogr.png")
 debug.getinfo(intersects,dx, "attempt to perform arthmetic on field 'x' (a nil value)")
-frames[1] = koble.newQuad(0, 0, 24, 24, generalImage:getDimensions())
-frames[2] = koble.newQuad(24, 0, 24, 24, generalImage:getDimensions())
-frames[3] = koble.newQuad(48, 0, 24, 24, generalImage:getDimensions())
-frames[4] = koble.newQuad(72, 0, 24, 24, generalImage:getDimensions())
-frames[5] = koble.newQuad(96, 0, 24, 24, generalImage:getDimensions())
-frames[6] = koble.newQuad(120, 0, 24, 24, generalImage:getDimensions())
-frames[7] = koble.newQuad(144, 0, 24, 24, generalImage:getDimensions())
-frames[8] = koble.newQuad(168, 0, 24, 24, generalImage:getDimensions())
-frames[9] = koble.newQuad(192, 0, 24, 24, generalImage:getDimensions())
-frames[10] = koble.newQuad(216, 0, 24, 24, generalImage:getDimensions())
-frames[11] = koble.newQuad(240, 0, 24, 24, generalImage:getDimensions())
-frames[12] = koble.newQuad(264, 0, 24, 24, generalImage:getDimensions())
-frames[13] = koble.newQuad(288, 0, 24, 24, generalImage:getDimensions())
-frames[14] = koble.newQuad(312, 0, 24, 24, generalImage:getDimensions())
-frames[15] = koble.newQuad(336, 0, 24, 24, generalImage:getDimensions())
-frames[16] = koble.newQuad(360, 0, 24, 24, generalImage:getDimensions())
-frames[17] = koble.newQuad(384, 0, 24, 24, generalImage:getDimensions())
+for i= 1,17 do
+   frames[i] = koble.newQuad((i-1) * 24, 0, 24, 24, gID)
+end
 watermelonImage = koble.newImage("water/Watermelon.png")
 duckfarts = koble.newImage("Cave.png")
 camelabuse = koble.newImage("Desert.png")
