@@ -1,4 +1,4 @@
-local gID = generalImage:getDimsensions()
+local gID = generalImage:getDimensions()
 local condition = {}
 local cor = {}
 local cortype = 1
