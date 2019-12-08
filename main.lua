@@ -268,9 +268,8 @@ function SpawnCor()
    elseif cortype == 14 then
      cor = {x = 256, y = 100, width = 24, height = 24, food = wheat, health = 30, img = coralImage, update = Animation()}
    elseif cortype == 15 then
-     cor = {x = 256, y = 488, width = 24, height = 24, food = wheat, health = 30, img = coralImage, update = Animation()}
-   end                               
-  end
+     cor = {x = 256, y = 488, width = 24, height = 24, food = wheat, health = 30, img = coralImage, update = Animation()}                             
+   end
   table.insert(cors, cor)
 end
 
