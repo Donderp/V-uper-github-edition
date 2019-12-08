@@ -1,4 +1,5 @@
 local gID = generalImage:getDimensions()
+local Boss1 = BOSSImage:getDimensions()
 local condition = {}
 local cor = {}
 local cortype = 1
@@ -90,6 +91,15 @@ blueball = koble.newQuad(16, 3, 4, 3, FoodImage:getDimensions())
 ohves = koble.newQuad(24, 1, 6, 6, FoodImage:getDimensions())
 blueberd= koble.newQuad(32, 2, 5, 4, FoodImage:getDimensions())
 spawn = koble.newQuad(40, 2, 8, 5, FoodImage:getDimensions())
+BOSSImage = koble.newImage("Boss1.png")
+for i= 18,33 do
+   frames[i] = koble.newQuad((i-1) * 32, 0, 32, 64, Boss1)
+end 
+
+for i= 34,40 do
+   frames[i] = koble.newQuad((i-1) * 32, 32, 32, 64, Boss1)
+end
+   
 end
 function love.update(dt)
  CheckMe()
@@ -216,6 +226,12 @@ function Animation()
    spawnWheat(x, y, speed)
    if (currentopen < 12) then
      currentopen = currentopen + 1
+   elseif cortype == 5 or 10 or 15 then
+      if (currentopen > 11) then
+        currentopen = currentopen - 1
+      else
+        currentopen = 12
+      end
    else
      currentopen = 1
    end
@@ -223,12 +239,37 @@ function Animation()
  end
 end
 function SpawnCor()
-  if cortype == 1 then
-    cor = {x = 256, y = 256, width = 24, height = 24, food = wheat, health = 10, img = coralImage, update = Animation()}
-  elseif cortype == 2 then
-    cor = {x = 300, y = 147, width = 24, height = 24, food = wheat, health = 10, img = coralImage, update = Animation()}
-  elseif cortype == 3 then
-    cor = {x = 200, y = 300, width = 24, height = 24, food = wheat, health = 10, img = coralImage, update = Animation()}
+   if cortype == 1 then
+     cor = {x = 256, y = 256, width = 24, height = 24, food = wheat, health = 30, img = coralImage, update = Animation()}
+   elseif cortype == 2 then
+     cor = {x = 300, y = 147, width = 24, height = 24, food = wheat, health = 30, img = coralImage, update = Animation()}
+   elseif cortype == 3 then
+     cor = {x = 200, y = 300, width = 24, height = 24, food = wheat, health = 30, img = coralImage, update = Animation()}
+   elseif cortype == 4 then
+     cor = {x = 400, y = 400, width = 24, height = 24, food = wheat, health = 30, img = coralImage, update = Animation()}
+   elseif cortype == 5 then
+     cor = {x = 235, y = 325, width = 24, height = 24, food = wheat, health = 30, img = coralImage, update = Animation()}
+   elseif cortype == 6 then
+     cor = {x = 222, y = 367, width = 24, height = 24, food = wheat, health = 30, img = coralImage, update = Animation()}
+   elseif cortype == 7 then
+     cor = {x = 256, y = 270, width = 24, height = 24, food = wheat, health = 30, img = coralImage, update = Animation()}
+   elseif cortype == 8 then
+     cor = {x = 256, y = 300, width = 24, height = 24, food = wheat, health = 30, img = coralImage, update = Animation()}
+   elseif cortype == 9 then
+     cor = {x = 237, y = 345, width = 24, height = 24, food = wheat, health = 30, img = coralImage, update = Animation()}
+   elseif cortype == 10 then
+     cor = {x = 200, y = 100, width = 24, height = 24, food = wheat, health = 30, img = coralImage, update = Animation()}
+   elseif cortype == 11 then
+     cor = {x = 389, y = 150, width = 24, height = 24, food = wheat, health = 30, img = coralImage, update = Animation()}
+   elseif cortype == 12 then
+     cor = {x = 295, y = 467, width = 24, height = 24, food = wheat, health = 30, img = coralImage, update = Animation()}
+   elseif cortype == 13 then
+     cor = {x = 300, y = 289, width = 24, height = 24, food = wheat, health = 30, img = coralImage, update = Animation()}
+   elseif cortype == 14 then
+     cor = {x = 256, y = 100, width = 24, height = 24, food = wheat, health = 30, img = coralImage, update = Animation()}
+   elseif cortype == 15 then
+     cor = {x = 256, y = 488, width = 24, height = 24, food = wheat, health = 30, img = coralImage, update = Animation()}
+   end                               
   end
   table.insert(cors, cor)
 end
