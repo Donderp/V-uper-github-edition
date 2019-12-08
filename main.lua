@@ -1,5 +1,4 @@
-local gID = generalImage:getDimensions()
-local Boss1 = BOSSImage:getDimensions()
+
 local condition = {}
 local cor = {}
 local cortype = 1
@@ -35,6 +34,8 @@ local activeopen
 require("Honeydog")
 require("Resourcesforenemiesandbackgrounds")
 function love.load()
+local gID = generalImage:getDimensions()
+local Boss1 = BOSSImage:getDimensions()
 local x = koble.getWidth()
 local y = koble.getHeight()
 music = love.audio.newSource( "8bitsoundtrack.ogg", "static" )
