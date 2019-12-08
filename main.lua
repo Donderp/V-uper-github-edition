@@ -33,7 +33,7 @@ local currentopen = 1
 local activeopen
 require("Honeydog")
 require("Resourcesforenemiesandbackgrounds")
-function love.load()
+function love.load() -- this loads
 local gID = generalImage:getDimensions()
 local Boss1 = BOSSImage:getDimensions()
 local x = koble.getWidth()
@@ -102,7 +102,7 @@ for i= 34,40 do
 end
    
 end
-function love.update(dt)
+function love.update(dt)-- i update
  CheckMe()
  updatePlayer(dt)
  updatewatermelons(dt)
@@ -130,7 +130,7 @@ function love.keypressed(key) -- Talkies
   end
 end
 
-function updatePlayer(dt)
+function updatePlayer(dt) -- player movement
   down = Ana.isDown("s")
   up = Ana.isDown("w")
   left = Ana.isDown("a")
@@ -181,7 +181,7 @@ function updatePlayer(dt)
   end
 
   
-function updatewatermelons(dt)
+function updatewatermelons(dt)--watermelons
   for index, watermelon in ipairs(watermelons, watermelon) do
      watermelon.xpos = watermelon.xpos + dt * watermelonspeed
       if watermelon.speed < watermelonmaxspeed then
@@ -195,7 +195,7 @@ end
     
 
 
-function Spawnwatermelon(x, y, speed)
+function Spawnwatermelon(x, y, speed)--spawnswatermelons
   if canFire then
    watermelon = {xpos = x,ypos = y, width = 7, height = 6, speed = speed, img = watermelonImage, watermelonTimermax = 300}
    table.insert(watermelons, watermelon)
@@ -205,7 +205,7 @@ function Spawnwatermelon(x, y, speed)
   end
 end
 
-function updateCor(cors, dt)
+function updateCor(cors, dt)--spawns cors
   for i=table.getn(cors), 1, -1 do
      cor = cors[i]
      cor.update = Animation()
@@ -222,7 +222,7 @@ function updateCor(cors, dt)
   SpawnCor()
 end
 
-function Animation()
+function Animation()--does animation for cors
  if canFire then
    spawnWheat(x, y, speed)
    if (currentopen < 12) then
@@ -239,7 +239,7 @@ function Animation()
    return Animation()
  end
 end
-function SpawnCor()
+function SpawnCor()--spawns the cors
    if cortype == 1 then
      cor = {x = 256, y = 256, width = 24, height = 24, food = wheat, health = 30, img = coralImage, update = Animation()}
    elseif cortype == 2 then
@@ -275,7 +275,7 @@ function SpawnCor()
 end
 
 
-function updatewheat(dt)
+function updatewheat(dt)-- the cors projectile
   for index, wheat in ipairs(wheats, wheat) do
      wheat.xpos = wheat.xpos + dt * wheatspeed -- error is here
      wheat.ypos = wheat.ypos - dt * wheatspeed
@@ -294,7 +294,7 @@ function updatewheat(dt)
   end
 end
 
-function spawnWheat(x, y, speed)
+function spawnWheat(x, y, speed)-- spawns the cors projectile
  if canFire then
    wheat = {xpos = koble.getWidth(),ypos = koble.getHeight(), width = 7, height = 6, speed = speed, img = FoodImage, quad = bread, wheatTimermax = 300}
    table.insert(wheats, wheat)
@@ -303,7 +303,7 @@ function spawnWheat(x, y, speed)
    return spawnWheat(x, y, speed)
  end
 end
-function love.draw()
+function love.draw()-- i draw
    background = koble.draw(theoakImage)
    for index, cor in ipairs(cors) do
      koble.draw(cor.img, activeopen,cor.x, cor.y, 0, 2, 2)
@@ -315,9 +315,9 @@ function love.draw()
    for index, wheat in ipairs(wheats)do
       koble.draw(wheat.img, wheat.quad, wheat.xpos, wheat.ypos)
    end
-   Talkies.draw()
+   Talkies.draw()-- for save passwords
 end
-function iamakittycat()
+function iamakittycat()-- starts thegame
 PlayerAilve = true
 player = {x = 0, y = 256, width = 24, height = 24, speed = 240, img = generalImage}
 Deathcount = 0
@@ -339,7 +339,7 @@ music:setVolume(0.7)
 success = music:play()
 
 end
-function intersects() -- attempt to perform arthmetic on field 'x' (a nil value)
+function intersects() -- the intersections
  
   if watermelon.xpos>cor.x + cor.height or watermelon.ypos>cor.y + cor.height or cor.x>watermelon.xpos+watermelon.width or cor.y>watermelon.ypos+watermelon.height then
    return false
@@ -348,7 +348,7 @@ function intersects() -- attempt to perform arthmetic on field 'x' (a nil value)
   end
 end
 
-function CheckMe()
+function CheckMe() -- checks collisons
     for index, cor in ipairs(cors) do
      if PlayerAilve and (intersectsplayer() or intersectscor()) then
        PlayerAilve = false
