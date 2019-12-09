@@ -34,17 +34,15 @@ local activeopen
 require("Honeydog")
 require("Resourcesforenemiesandbackgrounds")
 function love.load() -- this loads
-local gID = generalImage:getDimensions()
-local Boss1 = BOSSImage:getDimensions()
 local x = koble.getWidth()
 local y = koble.getHeight()
 music = love.audio.newSource( "8bitsoundtrack.ogg", "static" )
 generalImage = koble.newImage("7777654321dogr.png")
 debug.getinfo(intersects,dx, "attempt to perform arthmetic on field 'x' (a nil value)")
 for i= 1,17 do
-   frames[i] = koble.newQuad((i-1) * 24, 0, 24, 24, gID)
+   frames[i] = koble.newQuad((i-1) * 24, 0, 24, 24, generalImage:getDimensions())
 end
-watermelonImage = koble.newImage("water/Watermelon.png")
+watermelonImage = koble.newImage("Watermelon.png")
 duckfarts = koble.newImage("Cave.png")
 camelabuse = koble.newImage("Desert.png")
 waterframes = {}
@@ -69,7 +67,7 @@ watermelonspeed = watermelonstartspeed
 wheatstartspeed = 600
 wheatmaxspeed = 1500
 wheatspeed = wheatstartspeed
-coralImage = koble.newImage("zen/5Mr.Coral Vibrant.png")
+coralImage = koble.newImage("5Mr.Coral Vibrant.png")
 opens[1] = koble.newQuad(0, 0, 24, 24, coralImage:getDimensions())
 opens[2] = koble.newQuad(24, 0, 24, 24, coralImage:getDimensions())
 opens[3] = koble.newQuad(48, 0, 24, 24, coralImage:getDimensions())
@@ -84,7 +82,7 @@ opens[11] = koble.newQuad(240, 0, 24, 24, coralImage:getDimensions())
 opens[12] = koble.newQuad(264, 0, 24, 24, coralImage:getDimensions())
 opens[13] = koble.newQuad(288, 0, 24, 24, coralImage:getDimensions())
 activeopen = opens[currentopen]
-FoodImage = koble.newImage("zen/6Food.png")
+FoodImage = koble.newImage("6Food.png")
 wheats = {}
 bread = koble.newQuad(0, 2, 8, 4, FoodImage:getDimensions())
 meat = koble.newQuad(8, 2, 6, 6, FoodImage:getDimensions())
@@ -94,11 +92,11 @@ blueberd= koble.newQuad(32, 2, 5, 4, FoodImage:getDimensions())
 spawn = koble.newQuad(40, 2, 8, 5, FoodImage:getDimensions())
 BOSSImage = koble.newImage("Boss1.png")
 for i= 18,33 do
-   frames[i] = koble.newQuad((i-1) * 32, 0, 32, 64, Boss1)
+   frames[i] = koble.newQuad((i-1) * 32, 0, 32, 64, BOSSImage:getDimensions())
 end 
 
 for i= 34,40 do
-   frames[i] = koble.newQuad((i-1) * 32, 32, 32, 64, Boss1)
+   frames[i] = koble.newQuad((i-1) * 32, 32, 32, 64, BOSSImage:getDimensions())
 end
    
 end
